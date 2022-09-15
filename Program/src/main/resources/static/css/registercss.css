@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+body {
+  background-image:url('https://images8.alphacoders.com/987/987888.jpg');
+background-size:cover;
+}
+
+.signup-form {
+  font-family: "Roboto", sans-serif;
+  width:600px;
+  margin:20px auto;
+  background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+  border-radius: 20px;
+}
+
+
+/* Form Header */
+
+.form-header  {
+  background-color: #fff;
+
+}
+
+.form-header h1 {
+  font-size: 30px;
+  text-align:center;
+  color:#0F1E64;
+  padding:20px 0;
+  border-bottom:1px solid #cccccc;
+}
+
+
+/* Form Body */
+
+.form-body {
+  padding:10px 40px;
+  color:#CCDADA;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-body .label-title {
+  color:#000C66;
+  font-size: 17px;
+  font-weight: bold;
+ 
+}
+
+.form-body .form-input {
+    font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #0F4A6F;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: white;
+    outline: none;
+     margin-top:10px;
+}
+
+
+
+.horizontal-group .left{
+  float:left;
+  width:49%;
+}
+
+.horizontal-group .right{
+  float:right;
+  width:49%;
+}
+
+
+
+
+
+.btn {
+   display:inline-block;
+   padding:10px 20px;
+   background-color: #001F3D;
+   font-size:17px;
+   border:none;
+   border-radius:5px;
+   color:#bcf5e7;
+   cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #1477B2;
+  color:white;
+}
+
+.wrapper {
+  display: flex;
+
+  justify-content: space-between;
+  margin: 10px 0;
+}
+canvas {
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+    
+}
+button#reload-button {
+ 
+   padding:10px 10px;
+   background-color: #001F3D;
+   font-size:17px;
+   border:none;
+   border-radius:5px;
+   color:#bcf5e7;
+   margin-right:10px;
+  
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="../css/logincss.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <title>Sign in</title>
+</head>
+
+ <script>
+       function onSubmit(token) {
+         document.getElementById("demo-form").submit();
+       }
+     </script>
+<body>
+  <div class="main">
+    <p class="sign" align="center">Sign in</p>
+      <div id="error" th:text="${error}"></div>
+    <form class="form1"  method="post" action="#" th:object="${user}" th:action="@{login}" id="demo-form">
+      <input class="un " type="text" align="center" placeholder="Username" th:field="*{userName}"  >
+      <input class="pass" type="password" align="center" placeholder="Password"  th:field="*{password}" />
+      <a class="submit" align="center">Sign in</a>
+      <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+      <p class="forgot" align="center"> New to the Site?<a href="../register">Sign up</p>
+         </form>   
+                
+    </div>
+     
+</body>
+
+</html>

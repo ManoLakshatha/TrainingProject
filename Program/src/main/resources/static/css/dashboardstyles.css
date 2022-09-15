@@ -1,0 +1,110 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.container-fluid{
+    --bs-gutter-x: 0 !important;
+}
+.side-panel{
+    /* background: #EEF2FF; */
+    background-color:#050A30;
+    height: 100vh;
+    border-radius: 3px;
+    padding: 20px 0px;
+}
+.side-panel .header-logo{
+    margin-bottom: 20px;
+    
+}
+.side-panel .header-logo img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.side-panel .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #B1D4E0;
+    color: #000;
+    margin: 0;
+    border-radius: 0;
+    padding-left: 25px;
+    border-left: 5px solid #2667FF;
+}
+.side-panel .nav-item .nav-link{
+    padding-left: 30px;
+    font-weight: 600;
+    color: #2667FF;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.side-panel .nav-item .nav-link svg{
+    padding-right: 10px;
+}
+.side-panel .nav-item{
+    margin-top: 5px;
+  
+}
+
+/* =============================================== */
+.main-board{
+    width: 100%;
+    padding: 10px;
+    background-color: #fdfbfb;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.main-board .status{
+    margin-bottom: 30px;
+}
+.main-board .status .card{
+    padding: 0;
+}
+.main-board .status .card-one{
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #eef3ff;
+    border-left: 5px solid #2667FF;
+}
+.main-board .status .card-one h3{
+    font-size: 42px;
+}
+.main-board .status .card-two{
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #fff0d3;
+    border-left: 5px solid #FFA500;
+}
+.main-board .status .card-two h3{
+    font-size: 42px;
+}
+.main-board .status .card-three{
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #e5ceff;
+    border-left: 5px solid #7900FF;
+}
+.main-board .status .card-three h3{
+    font-size: 42px;
+}
+.main-board .head-show{
+    margin-bottom: 30px;
+}
+.main-board .avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-right: 10px;
+  }
