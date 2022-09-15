@@ -12,7 +12,7 @@ import com.mongodb.client.MongoDatabase;
 
 public class Mongodb {
 
-	 private static final String uri = "mongodb://mongodb-service:27017";
+	 private static final String uri = "mongodb://localhost:27017";
 	    private static final String database_name = "ProjectStores";
 	    private static final String users_collection = "Users";
 	    private static final String shipments_collection = "Shipments";

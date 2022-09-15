@@ -22,7 +22,7 @@ background-size:cover;
 
 .form-header  {
   background-color: #fff;
-
+  border-radius: 20px;
 }
 
 .form-header h1 {
@@ -30,7 +30,7 @@ background-size:cover;
   text-align:center;
   color:#0F1E64;
   padding:20px 0;
-  border-bottom:1px solid #cccccc;
+  
 }
 
 

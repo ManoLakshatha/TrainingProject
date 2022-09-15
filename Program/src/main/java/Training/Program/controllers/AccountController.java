@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import Training.Program.models.Shipments;
+
+
+import Training.Program.models.Shipment;
+
 import Training.Program.models.Users;
 import Training.Program.mongodb.Mongodb;
 
@@ -73,42 +76,41 @@ public class AccountController {
         if(this.user == null)
             return "redirect:/account/login";
         else{
-            model.addAttribute("shipment", new Shipments());
+            model.addAttribute("shipment", new Shipment());
             model.addAttribute("devices", Mongodb.getDeviceIDs());
-            return "createShipment";
+            return "CreateShipment";
         }
     }
 
     @PostMapping(path = "createShipment")
-    public String submitShipmentForm(@ModelAttribute Shipments shipment, Model model){
+    public String submitShipmentForm(@ModelAttribute Shipment shipment, Model model){
         if(this.user == null)
             return "redirect:/account/login";
         else{
             model.addAttribute("devices", Mongodb.getDeviceIDs());
             try {
-                notEmpty(shipment.getContainerNumber(), "Enter Shipment Number!");
-                notEmpty(shipment.getInvoiceNumber(), "Enter Container Number!");
-                notEmpty(shipment.getShipmentDescription(), "Provide a description!");
-                notEmpty(shipment.getRouteDetail(), "Select a Route!");
-                notEmpty(shipment.getGoodsType(), "Select Goods!");
+            	notEmpty(shipment.getSi_no(), "Enter Shipment Number!");
+                notEmpty(shipment.getContainer_no(), "Enter Container Number!");
+                notEmpty(shipment.getDesc(), "Provide a description!");
+                notEmpty(shipment.getRoute(), "Select a Route!");
+                notEmpty(shipment.getGoods(), "Select Goods!");
                 notEmpty(shipment.getDevice(), "Select Device!");
-                notEmpty(shipment.getExpectedDeliverydate(), "Enter Date!");
-                notEmpty(shipment.getPoNumber(), "Enter PO Number!");
-                notEmpty(shipment.getDeliveryNumber(), "Enter Delivery Number!");
-                notEmpty(shipment.getNdcNumber(), "Enter NDC Number!");
-                notEmpty(shipment.getBatchId(), "Enter Batch ID!");
-                notEmpty(shipment.getSerialNumber(), "Enter Serial Number!");
-                Mongodb.addShipment(this.user.getUserName(), shipment.getContainerNumber(), shipment.getContainerNumber(),
-                        shipment.getShipmentDescription(), shipment.getRouteDetail(), shipment.getGoodsType(), shipment.getDevice(), shipment.getExpectedDeliverydate(), shipment.getPoNumber(), shipment.getDeliveryNumber(),
-                        shipment.getNdcNumber(), shipment.getBatchId(), shipment.getSerialNumber());
-            }
+                notEmpty(shipment.getDate(), "Enter Date!");
+                notEmpty(shipment.getPo_no(), "Enter PO Number!");
+                notEmpty(shipment.getDelivery_no(), "Enter Delivery Number!");
+                notEmpty(shipment.getNdc_no(), "Enter NDC Number!");
+                notEmpty(shipment.getBatch_id(), "Enter Batch ID!");
+                notEmpty(shipment.getSerial_no(), "Enter Serial Number!");
+                Mongodb.addShipment(this.user.getUserName(), shipment.getSi_no(), shipment.getContainer_no(),
+                        shipment.getDesc(), shipment.getRoute(), shipment.getGoods(), shipment.getDevice(), shipment.getDate(), shipment.getPo_no(), shipment.getDelivery_no(),
+                        shipment.getNdc_no(), shipment.getBatch_id(), shipment.getSerial_no());    }
             catch (Exception e) {
                 model.addAttribute("error", e.getMessage());
                 model.addAttribute("shipment", shipment);
                 return "createShipment";
             }
             model.addAttribute("success", "Submitted successfully!");
-            model.addAttribute("shipment", new Shipments());
+            model.addAttribute("shipment", new Shipment());
             return "createShipment";
         }
     }

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Scxmperlite</title>
+    <title>Devices Data Stream</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboardstyles.css">
-
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 </head>
 <body>
@@ -20,11 +20,11 @@
           <div class="col-0 col-sm-0 col-md-3 col-lg-3 col-xxl-2 m-0 sidebar-column">
             <div class="side-panel sticky-top">
                 <div class="header-logo">
-                    <img src="./assets/images/Atmosphere.png" alt="" height="20">
+                   
                 </div>
-                  <ul class="nav flex-column nav-pills">
+                <ul class="nav flex-column nav-pills">
                     <li class="nav-item">
-                      <a class="nav-link active" th:href="@{dashboard}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" height="15" stroke="currentColor" stroke-width="2">
+                      <a class="nav-link "th:href="@{dashboard}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" height="15" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                       </svg> Dashboard</a>
                     </li>
@@ -34,7 +34,7 @@
                       </svg> Shipments</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " th:href="@{devices}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" height="15" stroke-width="2">
+                      <a class="nav-link active" th:href="@{devices}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" height="15" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                       </svg>Device Data Stream</a>
                     </li>
@@ -55,7 +55,7 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  
+                    
                     <form class="d-flex" role="search">
                       <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-success" type="submit">Search</button>
@@ -63,13 +63,45 @@
                   </div>
                 </div>
               </nav>
-           
+
+              <div class="container">
+                <div class="main-board">
+                    <div class="container">
+                      <h5>List of all Device Data Stream</h5>
+                      
+                      
+                      <table>
+    <tr>
+        <th th:each="key : ${devices[0].keySet()}" th:text="${key}"></th>
+    </tr>
+  <tr th:each="device : ${devices}">
+    <td th:each="key : ${device.keySet()}" th:text="${device.get(key)}"></td>
+  </tr>
+</table>
+                     <!--  <table class="table table-hover table-bordered">
+                        <thead>
+                          <tr>
+                              <th scope="col" th:each="key : ${devices[0].keySet()}" th:text="${key}"></th>
+                            <th scope="col" th:each="key : ${devices[0].keySet()}" th:text="${key}"></th> 
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="device : ${devices}">
+                          <td th:each="key : ${device.keySet()}" th:text="${device.get(key)}"></td>
+                        </tr>
+                      
+                        </tbody>
+                      </table> -->
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
    
-   
+
     <script>
       
     </script>
