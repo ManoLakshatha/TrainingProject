@@ -1,5 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8
 
-COPY target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
-
-ENTRYPOINT ["java","-jar","/demo-0.0.1-SNAPSHOT.jar"]
+ADD target/docker-message-server-1.0.0.jar message-server-1.0.0.jar
+ENTRYPOINT ["java","-jar","/message-server-1.0.0.jar"]

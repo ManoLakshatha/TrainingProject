@@ -17,7 +17,7 @@ import Training.Program.mongodb.Mongodb;
 
 
 @Controller
-@RequestMapping(path = "/account")
+@RequestMapping(path = "/api")
 public class AccountController {
 
     private Users user = null;
@@ -25,7 +25,7 @@ public class AccountController {
     @GetMapping(path = "login")
     public String viewLoginPage(Model model){
         if(this.user != null)
-            return "redirect:/account/dashboard";
+            return "redirect:/api/dashboard";
         model.addAttribute("user", new Users());
         return "login";
     }
@@ -33,7 +33,7 @@ public class AccountController {
     @PostMapping(path = "login")
     public String signInUser(@ModelAttribute Users user, Model model){
         if(this.user != null)
-            return "redirect:/account/dashboard";
+            return "redirect:/api/dashboard";
         try{
             Mongodb.authenticateUser(user.getUserName(), user.getPassword());
         } catch (Exception e) {
@@ -42,13 +42,13 @@ public class AccountController {
             return "login";
         }
         this.user = user;
-        return "redirect:/account/dashboard";
+        return "redirect:/api/dashboard";
     }
 
     @GetMapping(path = "dashboard")
     public String viewDashboard(Model model){
         if(this.user == null)
-            return "redirect:/account/login";
+            return "redirect:/api/login";
         else
             model.addAttribute("user", this.user);
             return "dashboard";
@@ -58,13 +58,13 @@ public class AccountController {
     public String logoutUser(){
         if(this.user != null)
             this.user = null;
-        return "redirect:/account/login";
+        return "redirect:/api/login";
     }
 
     @GetMapping(path="devices")
     public String getDevicesDataStream(Model model){
         if(this.user == null)
-            return "redirect:/account/login";
+            return "redirect:/api/login";
         else{
             model.addAttribute("devices", Mongodb.getDevices());
             return "devices";
@@ -74,7 +74,7 @@ public class AccountController {
     @GetMapping(path = "createShipment")
     public String createShipmentPage(Model model){
         if(this.user == null)
-            return "redirect:/account/login";
+            return "redirect:/api/login";
         else{
             model.addAttribute("shipment", new Shipment());
             model.addAttribute("devices", Mongodb.getDeviceIDs());
@@ -85,7 +85,7 @@ public class AccountController {
     @PostMapping(path = "createShipment")
     public String submitShipmentForm(@ModelAttribute Shipment shipment, Model model){
         if(this.user == null)
-            return "redirect:/account/login";
+            return "redirect:/api/login";
         else{
             model.addAttribute("devices", Mongodb.getDeviceIDs());
             try {
